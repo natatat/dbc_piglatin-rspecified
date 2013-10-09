@@ -23,3 +23,9 @@ describe "append consonants" do
     piglatinafier("mochi").should == "ochimay"
   end
 end
+
+describe "sentence piglatinafier" do
+  it "should piglatinafy each word in a sentence" do
+    sentence_piglatinafier("tupac over biggie").should == "upactay over iggiebay"
+  end
+end

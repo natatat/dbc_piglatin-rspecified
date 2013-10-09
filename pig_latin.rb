@@ -1,4 +1,3 @@
-
 def vowel_checker(word)
   word if word[0] =~ /[aeiou]/
 end
@@ -12,9 +11,25 @@ def rest_of_word(word)
 end
 
 def piglatinafier(word)
-  rest_of_word(word) + consonant_getter(word) + "ay"
+  if vowel_checker(word)
+    word
+  else
+    rest_of_word(word) + consonant_getter(word) + "ay"
+  end
 end
 
-puts "ENTER A WURD PLZ:"
-word = gets.chomp
-puts "HERE'Z IT PIGLATINAFIED:\n#{piglatinafier(word)}"
+# puts "ENTER A WURD PLZ:"
+# word = gets.chomp
+# puts "HERE'Z IT PIGLATINAFIED:\n#{piglatinafier(word)}"
+
+def sentence_piglatinafier(sentence)
+  piglatinafied = []
+  sentence.split(" ").each do |word|
+    piglatinafied << piglatinafier(word)
+  end
+  piglatinafied.join(" ")
+end
+
+puts "ENTER A SENTENCE PLZ:"
+sentence = gets.chomp
+puts "HERE'Z IT PIGLATINAFIED:\n#{sentence_piglatinafier(sentence)}"
